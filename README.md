@@ -12,7 +12,7 @@ The Problem with the original Script is that if there are multiple Domains Speci
 1. Install Powershell v7 (https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)
 2. Download and Extract the Win-Acme Script (https://github.com/win-acme/win-acme/releases)
 3. Create 2 WAF Rules
-   - one for HTTPS
+   - one for HTTPS (you cannot use HTTP redirection) [maybe if http rule ontop and with Pathspecific Routing enabled]
    - one for HTTP with SitePathRoute for /.well-known/acme-challenge/
 4. run the Win-Acme Script and configure like it is specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
    It is important to change the configfile so the Private Key is Exportable
