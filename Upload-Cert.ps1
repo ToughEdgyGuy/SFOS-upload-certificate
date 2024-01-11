@@ -193,7 +193,7 @@ function ContainsAll([string[]] $List, [string[]]$Search) {
 	}
 
 	foreach ($Element in $Search) {
-		if ($List -notcontains $Element) {
+		if (!($List -Match $Element)) {		#if ($List -notcontains $Element) {
 			return $false
 		}
 	}
@@ -525,8 +525,8 @@ function Main {
 
 	$DateMonthFormat = (Get-Date -Format yyyy_MM)
 	$CertPreFix = $DateMonthFormat + " "
-	$CertName = $CertPreFix + $FriendlyName
-	
+	$CertName = $CertPreFix + $FriendlyName + " " + ($Certificate.Thumbprint -replace "^(.{5}).+$", '$1')
+ 
 	$FirewallApi = [FirewallApi]::new()
 	$FirewallApi.Credential = $Credential
 	$FirewallApi.Uri = $Uri
