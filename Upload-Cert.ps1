@@ -91,13 +91,13 @@ param(
 	#[System.Management.Automation.Credential()]
 	#$Credential,
 
-    [Parameter(Mandatory, Position = 1)]
-    [string]
-    $User,
+    	[Parameter(Mandatory, Position = 1)]
+    	[string]
+    	$User,
     
-    [Parameter(Mandatory, Position = 1)]
-    [string]
-    $Pw,
+    	[Parameter(Mandatory, Position = 1)]
+   	[string]
+   	$Pw,
 
 	[Parameter(Mandatory, ParameterSetName = 'Thumbprint', Position = 2)]
 	[string]
