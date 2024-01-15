@@ -21,5 +21,5 @@ The Problem with the original Script is that if there are multiple Domains Speci
 7. create an automatic task that runs the Upload-Cert.ps1 Script daily
    
 ``` powershell 7
-.\Upload-Cert.ps1 -Uri "https://_SOPHOS_IP_/webconsole/APIController" -Credential (New-Object System.Management.Automation.PSCredential("_SOPHOS_USER_", (ConvertTo-SecureString "_SOPHOS_USER_PASSWORD_" -AsPlainText -Force))) -CertificateFriendlyName "_CERTNAME_SPECIFIED_IN_THE_WIN_ACME_SCRIPT_" -verbose
+.\Upload-Cert.ps1 -Uri "https://_SOPHOS_IP_/webconsole/APIController" -User "_SOPHOS_USER_" -Pw "_SOPHOS_USER_PASSWORD_" -CertificateFriendlyName "_CERTNAME_SPECIFIED_IN_THE_WIN_ACME_SCRIPT_" -verbose
 ```
