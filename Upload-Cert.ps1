@@ -85,11 +85,19 @@ param(
 	[string]
 	$Uri,
 
-	[Parameter(Mandatory, Position = 1)]
-	[ValidateNotNull()]
-	[System.Management.Automation.PSCredential]
-	[System.Management.Automation.Credential()]
-	$Credential,
+	#[Parameter(Mandatory, Position = 1)]
+	#[ValidateNotNull()]
+	#[System.Management.Automation.PSCredential]
+	#[System.Management.Automation.Credential()]
+	#$Credential,
+
+    [Parameter(Mandatory, Position = 1)]
+    [string]
+    $User,
+    
+    [Parameter(Mandatory, Position = 1)]
+    [string]
+    $Pw,
 
 	[Parameter(Mandatory, ParameterSetName = 'Thumbprint', Position = 2)]
 	[string]
@@ -132,6 +140,8 @@ param(
 	[switch]
 	$DeleteOldCertificates
 )
+
+$Credential = New-Object System.Management.Automation.PSCredential($User, (ConvertTo-SecureString $Pw -AsPlainText -Force))
 
 $global:DeleteTempCert = $false
 $global:InternalPfxPath = $PfxPath
@@ -193,7 +203,7 @@ function ContainsAll([string[]] $List, [string[]]$Search) {
 	}
 
 	foreach ($Element in $Search) {
-		if (!($List -Match $Element)) {		#if ($List -notcontains $Element) {
+		if (!($List -Match $Element)) { #if ($List -notcontains $Element) {
 			return $false
 		}
 	}
@@ -526,7 +536,7 @@ function Main {
 	$DateMonthFormat = (Get-Date -Format yyyy_MM)
 	$CertPreFix = $DateMonthFormat + " "
 	$CertName = $CertPreFix + $FriendlyName + " " + ($Certificate.Thumbprint -replace "^(.{5}).+$", '$1')
- 
+	
 	$FirewallApi = [FirewallApi]::new()
 	$FirewallApi.Credential = $Credential
 	$FirewallApi.Uri = $Uri
