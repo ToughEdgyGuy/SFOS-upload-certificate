@@ -5,8 +5,8 @@ Forked from https://github.com/mwcs4/SFOS-upload-certificate
  - https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/
 
 ### Usecase
-Microsoft Exchange Server behind a Sophos XG Firewall with the WAF Feature enabeld and configured. Since Exchange Server uses multiple virtual directories, our Certificate usualy has multiple Hostnames in the Lets Encrypt Certificate (atleast autodiscover.[domain]). 
-The Problem with the original Script is that if there are multiple Domains Specified in the WAF Rule, the Script would not match the Rule and therefore not Change the Certificat.
+Microsoft Exchange Server behind a Sophos XG Firewall with the WAF Feature enabeld and configured. Since Exchange Server uses multiple virtual directories, our Certificate usualy has multiple Hostnames in the Lets Encrypt Certificate (atleast autodiscover._domain_). 
+The Problem with the original Script is that if there are multiple Domains Specified in the WAF Rule, the Script would not match the Rule and therefore not Change the Certificate.
 
 ## How to Use the Workflow
 1. Install Powershell v7 (https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)
@@ -14,7 +14,7 @@ The Problem with the original Script is that if there are multiple Domains Speci
 3. Create 2 WAF Rules
    - one for HTTPS (you cannot use HTTP redirection) [maybe if http rule ontop and with Pathspecific Routing enabled]
    - one for HTTP with SitePathRoute for /.well-known/acme-challenge/
-4. run the Win-Acme Script and configure like it is specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
+4. configure the Win-Acme Script like specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
    It is important to change the configfile so the Private Key is Exportable
 5. download the Upload-Cert.ps1 Script
 6. Create User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script
