@@ -16,7 +16,7 @@ The Problem with the original Script is that if there are multiple Domains Speci
    - HTTP: create SitePathRoute only for the /.well-known/acme-challenge/ directory
 4. configure the Win-Acme Script like specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
    It is important to change the configfile so the Private Key is Exportable
-5. download the Upload-Cert.ps1 Script
+5. download the [Upload-Cert.ps1](https://github.com/ToughEdgyGuy/SFOS-upload-certificate/blob/main/Upload-Cert.ps1)
 6. Create an Administrator User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script (beware of powershell escape Characters inside of the password)
 7. create an automatic task with powershell 7 that runs the Upload-Cert.ps1 Script daily. (as System)
    
