@@ -12,8 +12,8 @@ The Problem with the original Script is that if there are multiple Domains Speci
 1. Install Powershell v7 (https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) download the .msi
 2. Download and Extract the Win-Acme Script (https://github.com/win-acme/win-acme/releases) [show_more -> win-acme.vX.X.X.x64.pluggable.zip]
 3. Create 2 WAF Rules
-   - HTTPS: (you cannot use HTTP redirection) [maybe if the http rule is ontop and has pathspecific routing enabled]
-   - HTTP: create SitePathRoute for /.well-known/acme-challenge/
+   - HTTPS: (you cannot use HTTP redirection)
+   - HTTP: create SitePathRoute only for the /.well-known/acme-challenge/ directory
 4. configure the Win-Acme Script like specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
    It is important to change the configfile so the Private Key is Exportable
 5. download the Upload-Cert.ps1 Script
