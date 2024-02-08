@@ -18,7 +18,7 @@ The Problem with the original Script is that if there are multiple Domains Speci
    It is important to change the configfile so the Private Key is Exportable
 5. download the Upload-Cert.ps1 Script
 6. Create an Administrator User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script (beware of powershell escape Characters inside of the password)
-7. create an automatic task that runs the Upload-Cert.ps1 Script daily
+7. create an automatic task with powershell 7 that runs the Upload-Cert.ps1 Script daily.
    
 ``` powershell 7
 .\Upload-Cert.ps1 -Uri "https://_SOPHOS_IP_/webconsole/APIController" -User "_SOPHOS_USER_" -Pw "_SOPHOS_USER_PASSWORD_" -CertificateFriendlyName "_CERTNAME_SPECIFIED_IN_THE_WIN_ACME_SCRIPT_" -verbose
