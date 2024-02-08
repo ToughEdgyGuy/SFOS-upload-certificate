@@ -10,14 +10,14 @@ The Problem with the original Script is that if there are multiple Domains Speci
 
 ## How to Use the Workflow
 1. Install Powershell v7 (https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)
-2. Download and Extract the Win-Acme Script (https://github.com/win-acme/win-acme/releases)
+2. Download and Extract the Win-Acme Script (https://github.com/win-acme/win-acme/releases) [win-acme.vX.X.X.x64.pluggable.zip]
 3. Create 2 WAF Rules
-   - one for HTTPS (you cannot use HTTP redirection) [maybe if the http rule is ontop and has pathspecific routing enabled]
-   - one for HTTP with SitePathRoute for /.well-known/acme-challenge/
+   - HTTPS: (you cannot use HTTP redirection) [maybe if the http rule is ontop and has pathspecific routing enabled]
+   - HTTP: create SitePathRoute for /.well-known/acme-challenge/
 4. configure the Win-Acme Script like specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
    It is important to change the configfile so the Private Key is Exportable
 5. download the Upload-Cert.ps1 Script
-6. Create User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script
+6. Create an Administrator User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script
 7. create an automatic task that runs the Upload-Cert.ps1 Script daily
    
 ``` powershell 7
