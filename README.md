@@ -17,7 +17,7 @@ The Problem with the original Script is that if there are multiple Domains Speci
 4. configure the Win-Acme Script like specified here (https://www.alitajran.com/install-free-lets-encrypt-certificate-in-exchange-server/).
    It is important to change the configfile so the Private Key is Exportable
 5. download the Upload-Cert.ps1 Script
-6. Create an Administrator User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script
+6. Create an Administrator User on the Sophos Firewall and enable the API + the IP of the Source Server that runs this Script (beware of powershell escape Characters inside of the password)
 7. create an automatic task that runs the Upload-Cert.ps1 Script daily
    
 ``` powershell 7
