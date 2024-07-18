@@ -218,7 +218,7 @@ function GetCertificateNames($Certificate) {
 
 	$SAN = $SAN -replace "`n","" -replace "`r",""
 
-	$Names = $SAN.Split("DNS Name=",[System.StringSplitOptions]::RemoveEmptyEntries)
+	$Names = $SAN.Split("DNS-Name=",[System.StringSplitOptions]::RemoveEmptyEntries)
 	$Names += $Subject
 	
 	return $Names | Select-Object -Unique
